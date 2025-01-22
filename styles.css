@@ -1,0 +1,136 @@
+/* Reset básico */
+body, h1, h2, p {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Arial', sans-serif;
+    line-height: 1.6;
+    color: #FBECEF;
+    background: #31342D;
+    padding: 0 10px;
+    overflow: hidden; /* Para garantir que animações fiquem visíveis */
+}
+
+header {
+    text-align: center;
+    background: linear-gradient(135deg, #EB1E7D, #F5B1C0);
+    color: #FBECEF;
+    padding: 20px;
+    border-radius: 10px;
+    margin-bottom: 20px;
+}
+
+header h1 {
+    font-size: 2.5em;
+    margin-bottom: 10px;
+}
+
+header p {
+    font-size: 1.2em;
+}
+
+main {
+    max-width: 800px;
+    margin: 0 auto;
+    background: #F5B1C0;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+    overflow: hidden;
+}
+
+section {
+    padding: 20px;
+    margin: 10px 0;
+    background: #EE3634;
+    border-radius: 10px;
+}
+
+#galeria {
+    text-align: center;
+}
+
+#galeria .fotos {
+    display: flex;
+    gap: 10px;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+#galeria img {
+    max-width: 100%;
+    height: auto;
+    border-radius: 10px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.5);
+    transition: transform 0.3s;
+}
+
+#galeria img:hover {
+    transform: scale(1.05);
+}
+
+#musicas audio {
+    display: block;
+    margin: 10px auto;
+}
+
+#mensagens {
+    background: #F5B1C0;
+    border-radius: 10px;
+    padding: 15px;
+}
+
+#mensagens p {
+    font-size: 1.2em;
+    margin-bottom: 10px;
+    text-align: center;
+    color: #FBECEF;
+}
+
+footer {
+    text-align: center;
+    background: #EB1E7D;
+    padding: 10px;
+    border-radius: 10px;
+    margin-top: 20px;
+    font-size: 1em;
+    color: #FBECEF;
+}
+
+/* Efeito Parallax */
+.parallax {
+    position: relative;
+    background-attachment: fixed;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    height: 400px;
+}
+
+.parallax-1 {
+    background-image: url('parallax1.jpg');
+}
+
+.parallax-2 {
+    background-image: url('parallax2.jpg');
+}
+
+@media (max-width: 768px) {
+    header h1 {
+        font-size: 2em;
+    }
+
+    main {
+        padding: 10px;
+    }
+
+    #galeria .fotos {
+        flex-direction: column;
+    }
+
+    #galeria img {
+        width: 90%;
+    }
+}

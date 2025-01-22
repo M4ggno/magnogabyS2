@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Feliz 3 Meses!</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="animations.css">
+
+</head>
+<body>
+    <header>
+        <h1>Feliz 3 Meses, Meu Amor!</h1>
+        <p>Uma pequena homenagem para a pessoa mais especial da minha vida.</p>
+    </header>
+
+    <main>
+        <!-- Galeria de Fotos -->
+        <section id="galeria">
+            <h2>Nossas Memórias</h2>
+            <div class="fotos">
+                <img src="foto1.jpg" alt="Foto 1">
+                <img src="foto2.jpg" alt="Foto 2">
+                <img src="foto3.jpg" alt="Foto 3">
+            </div>
+        </section>
+
+        <!-- Músicas Especiais -->
+        <section id="musicas">
+            <h2>Nossas Músicas</h2>
+            <audio controls>
+                <source src="musica1.mp3" type="audio/mpeg">
+                Seu navegador não suporta áudio.
+            </audio>
+        </section>
+
+        <!-- Mensagens Especiais -->
+        <section id="mensagens">
+            <h2>Mensagens para Você</h2>
+            <p>"Você é a melhor coisa que aconteceu na minha vida."</p>
+            <p>"Cada momento ao seu lado é inesquecível."</p>
+        </section>
+    </main>
+
+    <footer>
+        <p>Com todo o meu amor, para você. ❤️</p>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
+<script>
+    function createHeart() {
+        const heart = document.createElement('div');
+        heart.classList.add('heart');
+
+        // Posicionamento horizontal aleatório
+        heart.style.left = Math.random() * 100 + 'vw';
+
+        // Adiciona o coração ao body
+        document.body.appendChild(heart);
+
+        // Remove o coração após a animação
+        setTimeout(() => {
+            heart.remove();
+        }, 10000); // Deve ser igual ao tempo da animação
+    }
+
+    // Gera corações em intervalos de 1 segundo
+    setInterval(createHeart, 1000);
+</script>

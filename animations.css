@@ -1,0 +1,26 @@
+/* Animações de corações */
+.heart {
+    position: fixed;
+    bottom: 0;
+    width: 30px;
+    height: 30px;
+    background-image: url('hearts.png');
+    background-size: contain;
+    background-repeat: no-repeat;
+    opacity: 0.9;
+    animation: floatUp 10s infinite ease-in;
+}
+
+@keyframes floatUp {
+    0% {
+        transform: translateY(0) scale(1);
+        opacity: 0.9;
+    }
+    50% {
+        opacity: 0.6;
+    }
+    100% {
+        transform: translateY(-50vh) scale(0.8);
+        opacity: 0;
+    }
+}
