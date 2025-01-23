@@ -4,7 +4,7 @@
     bottom: 0;
     width: 30px;
     height: 30px;
-    background-image: url('hearts.png');
+    background-image: url('/img/hearts.png');
     background-size: contain;
     background-repeat: no-repeat;
     opacity: 0.9;
