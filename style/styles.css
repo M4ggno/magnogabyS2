@@ -1,136 +1,143 @@
-/* Reset básico */
-body, h1, h2, p {
+/* Reset e ajustes globais */
+html, body {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
+    width: 100%;
+    height: 100%;
+    overflow-x: hidden; /* Previne rolagem horizontal */
 }
 
 body {
-    font-family: 'Arial', sans-serif;
-    line-height: 1.6;
-    color: #FBECEF;
-    background: #31342D;
-    padding: 0 10px;
-    overflow: hidden; /* Para garantir que animações fiquem visíveis */
+    font-family: Arial, sans-serif;
+    background: linear-gradient(135deg, #f0c0e8, #c0d4f5);
+    background-size: cover;
+    color: #333;
+    display: flex;
+    flex-direction: column; /* Empilha os elementos em coluna */
+    align-items: center;
 }
 
 header {
+    width: 100%;
+    padding: 10px;
+    background-color: #c0d4f5;
     text-align: center;
-    background: linear-gradient(135deg, #EB1E7D, #F5B1C0);
-    color: #FBECEF;
-    padding: 20px;
-    border-radius: 10px;
-    margin-bottom: 20px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
 }
 
-header h1 {
-    font-size: 2.5em;
+.carousel-container, .photo-gallery {
+    width: 90%;
+    max-width: 600px;
+    overflow: hidden;
+    margin: 20px 0;
+    position: relative;
+}
+.carousel {
+    display: flex;
+    transition: transform 0.5s ease;
+}
+
+.card {
+    flex: 0 0 100%;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+    border-radius: 15px;
+    background: #fff;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 15px;
+    text-align: center;
+}
+
+.card img {
+    max-width: 100%;
+    border-radius: 10px;
     margin-bottom: 10px;
 }
 
-header p {
-    font-size: 1.2em;
+.card .info {
+    margin-bottom: 10px;
 }
 
-main {
-    max-width: 800px;
-    margin: 0 auto;
-    background: #F5B1C0;
-    border-radius: 10px;
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
-    overflow: hidden;
-}
-
-section {
-    padding: 20px;
-    margin: 10px 0;
-    background: #EE3634;
-    border-radius: 10px;
-}
-
-#galeria {
-    text-align: center;
-}
-
-#galeria .fotos {
+.card .controls {
     display: flex;
     gap: 10px;
-    justify-content: center;
-    flex-wrap: wrap;
 }
 
-#galeria img {
-    max-width: 100%;
-    height: auto;
-    border-radius: 10px;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.5);
-    transition: transform 0.3s;
+.controls button {
+    background: #f0c0e8;
+    border: none;
+    padding: 10px 15px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background 0.3s;
 }
 
-#galeria img:hover {
-    transform: scale(1.05);
+.controls button:hover {
+    background: #c0d4f5;
 }
 
-#musicas audio {
-    display: block;
-    margin: 10px auto;
+.message-container {
+    width: 90%;
+    max-width: 600px;
+    margin: 20px;
+    text-align: center;
 }
 
-#mensagens {
-    background: #F5B1C0;
-    border-radius: 10px;
-    padding: 15px;
-}
-
-#mensagens p {
-    font-size: 1.2em;
+.message-container h2 {
     margin-bottom: 10px;
-    text-align: center;
-    color: #FBECEF;
 }
 
-footer {
+.message-container p {
+    font-size: 1.2rem;
+    color: #444;
+}
+
+.timer {
+    font-size: 1.5rem;
+    font-weight: bold;
     text-align: center;
-    background: #EB1E7D;
-    padding: 10px;
+    margin: 20px 0;
+}
+
+.photo-gallery .carousel {
+    display: flex;
+    transition: transform 0.5s ease;
+}
+
+.photo-gallery img {
+    flex: 0 0 100%;
     border-radius: 10px;
-    margin-top: 20px;
-    font-size: 1em;
-    color: #FBECEF;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
 }
 
-/* Efeito Parallax */
-.parallax {
-    position: relative;
-    background-attachment: fixed;
-    background-position: center;
-    background-repeat: no-repeat;
-    background-size: cover;
-    height: 400px;
-}
-
-.parallax-1 {
-    background-image: url('parallax1.jpg');
-}
-
-.parallax-2 {
-    background-image: url('parallax2.jpg');
-}
-
+/* Responsividade */
 @media (max-width: 768px) {
-    header h1 {
-        font-size: 2em;
+    .timer {
+        font-size: 1.2rem;
     }
 
-    main {
-        padding: 10px;
+    .message-container p {
+        font-size: 1rem;
     }
 
-    #galeria .fotos {
-        flex-direction: column;
+    .carousel-container, .photo-gallery {
+        width: 100%;
     }
 
-    #galeria img {
-        width: 90%;
+    header {
+        padding: 15px;
+    }
+}
+
+@media (max-width: 480px) {
+    .timer {
+        font-size: 1rem;
+    }
+
+    .message-container p {
+        font-size: 0.9rem;
     }
 }

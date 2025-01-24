@@ -1,51 +1,79 @@
 <!DOCTYPE html>
-<html lang="pt-BR">
+<html lang="PT-BR">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Feliz 3 Meses!</title>
+    <title>Gaby Te Amo</title>
     <link rel="stylesheet" href="/style/styles.css">
     <link rel="stylesheet" href="/style/animations.css">
-
-</head>
+    <link rel="icon" href="/img/hearts.png" type="image/x-icon">
 <body>
     <header>
-        <h1>Feliz 3 Meses, Meu Amor!</h1>
-        <p>Uma pequena homenagem para a pessoa mais especial da minha vida.</p>
+        <h1>Music Carousel</h1>
+        <p>Listen to your favorite songs with ease</p>
     </header>
-
-    <main>
-        <!-- Galeria de Fotos -->
-        <section id="galeria">
-            <h2>Nossas Memórias</h2>
-            <div class="fotos">
-                <img src="foto1.jpg" alt="Foto 1">
-                <img src="foto2.jpg" alt="Foto 2">
-                <img src="foto3.jpg" alt="Foto 3">
+    <!-- Mensagem -->
+    <div class="message-container">
+        <h2>Minha mensagem para você</h2>
+        <p>Você trouxe luz para minha vida e tornou cada dia especial. Obrigado por ser quem você é. Amo você! 💕</p>
+    </div>
+    <!-- Galeria de fotos -->
+    <div class="photo-gallery">
+        <h2>Momentos juntos</h2>
+        <div class="carousel">
+            <img src="photo1.jpg" alt="Photo 1">
+            <img src="photo2.jpg" alt="Photo 2">
+            <img src="photo3.jpg" alt="Photo 3">
+        </div>
+    </div>
+    <!-- Contador -->
+    <div class="timer" id="timer">Tempo juntos: </div>
+    <div class="carousel-container">
+        <div class="carousel">
+            <!-- Card 1 -->
+            <div class="card">
+                <img src="image1.jpg" alt="Song 1">
+                <div class="info">
+                    <h3>Song Name 1</h3>
+                    <p>Singer Name</p>
+                </div>
+                <div class="controls">
+                    <button class="prev">⏮</button>
+                    <button class="play">▶</button>
+                    <button class="next">⏭</button>
+                </div>
             </div>
-        </section>
 
-        <!-- Músicas Especiais -->
-        <section id="musicas">
-            <h2>Nossas Músicas</h2>
-            <audio controls>
-                <source src="musica1.mp3" type="audio/mpeg">
-                Seu navegador não suporta áudio.
-            </audio>
-        </section>
+            <!-- Card 2 -->
+            <div class="card">
+                <img src="image2.jpg" alt="Song 2">
+                <div class="info">
+                    <h3>Song Name 2</h3>
+                    <p>Singer Name</p>
+                </div>
+                <div class="controls">
+                    <button class="prev">⏮</button>
+                    <button class="play">▶</button>
+                    <button class="next">⏭</button>
+                </div>
+            </div>
 
-        <!-- Mensagens Especiais -->
-        <section id="mensagens">
-            <h2>Mensagens para Você</h2>
-            <p>"Você é a melhor coisa que aconteceu na minha vida."</p>
-            <p>"Cada momento ao seu lado é inesquecível."</p>
-        </section>
-    </main>
+            <!-- Card 3 -->
+            <div class="card">
+                <img src="image3.jpg" alt="Song 3">
+                <div class="info">
+                    <h3>Song Name 3</h3>
+                    <p>Singer Name</p>
+                </div>
+                <div class="controls">
+                    <button class="prev">⏮</button>
+                    <button class="play">▶</button>
+                    <button class="next">⏭</button>
+                </div>
+            </div>
+        </div>
+    </div>
 
-    <footer>
-        <p>Com todo o meu amor, para você. ❤️</p>
-    </footer>
-
-    <script src="src/srcipts.js"></script>
+    <script src="/src/srcipts.js"></script>
 </body>
 </html>
