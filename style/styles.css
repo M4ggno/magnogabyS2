@@ -95,13 +95,6 @@ header {
     color: #444;
 }
 
-.timer {
-    font-size: 1.5rem;
-    font-weight: bold;
-    text-align: center;
-    margin: 20px 0;
-}
-
 .photo-gallery .carousel {
     display: flex;
     transition: transform 0.5s ease;

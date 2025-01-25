@@ -57,22 +57,40 @@ window.addEventListener('resize', () => {
 // Centraliza o carrossel na inicialização
 updateCarousel();
 
-// Data de início do namoro
-const startDate = new Date('2024-11-01T20:00:00'); // Ajuste para a data correta
-
 function updateTimer() {
+    const startDate = new Date('2024-11-01T00:00:00');
     const now = new Date();
-    const diff = now - startDate;
+    const difference = now - startDate;
 
-    const days = Math.floor(diff / (1000 * 60 * 60 * 24));
-    const hours = Math.floor((diff / (1000 * 60 * 60)) % 24);
-    const minutes = Math.floor((diff / (1000 * 60)) % 60);
-    const seconds = Math.floor((diff / 1000) % 60);
+    const days = Math.floor(difference / (1000 * 60 * 60 * 24));
+    const hours = Math.floor((difference % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+    const minutes = Math.floor((difference % (1000 * 60 * 60)) / (1000 * 60));
+    const seconds = Math.floor((difference % (1000 * 60)) / 1000);
 
-    document.getElementById('timer').textContent = `Tempo juntos: ${days} dias, ${hours} horas, ${minutes} minutos, ${seconds} segundos`;
+    // Atualizando os valores
+    updateFlipCard('days', days);
+    updateFlipCard('hours', hours);
+    updateFlipCard('minutes', minutes);
+    updateFlipCard('seconds', seconds);
+}
+
+// Função para atualizar a rotação do flip card
+function updateFlipCard(id, value) {
+    const flipCard = document.getElementById(id);
+    const flipCardInner = flipCard.querySelector('.flip-card-inner');
+    
+    // Se o valor já for o mesmo, não faz a animação
+    if (flipCardInner.textContent !== value.toString()) {
+        // Reinicia a animação de flip
+        flipCardInner.style.animation = 'none';
+        flipCardInner.offsetHeight; // Força o reflow para reiniciar a animação
+        flipCardInner.style.animation = 'flip 1s ease-in-out'; // Aplica a animação
+        flipCardInner.textContent = value; // Atualiza o número
+    }
 }
 
 setInterval(updateTimer, 1000);
+
 
 // Carrossel de fotos
 const photoCarousel = document.querySelector('.photo-gallery .carousel');
