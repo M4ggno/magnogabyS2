@@ -40,17 +40,34 @@ document.querySelectorAll('.next').forEach((button) => {
     });
 });
 
-// Play button functionality
+// Seleciona os botões de play
 const playButtons = document.querySelectorAll('.play');
+
 playButtons.forEach((button, index) => {
+    const audio = new Audio(`music/song${index + 1}.mp3`); // Ajusta o caminho do áudio
+    let isPlaying = false;
+
     button.addEventListener('click', () => {
-        alert(`Playing: ${cards[index].querySelector('.info h3').innerText}`);
+        if (isPlaying) {
+            audio.pause();
+            button.innerHTML = "▶️"; // Ícone de play
+        } else {
+            audio.play();
+            button.innerHTML = "⏸️"; // Ícone de pause
+        }
+        isPlaying = !isPlaying;
+    });
+
+    // Reseta o botão quando a música termina
+    audio.addEventListener("ended", () => {
+        button.innerHTML = "▶️";
+        isPlaying = false;
     });
 });
 
+
 // Responsividade para o carrossel
 window.addEventListener('resize', () => {
-    // Ajusta o carrossel para garantir que os cartões estejam corretamente centralizados
     updateCarousel();
 });
 
@@ -67,42 +84,70 @@ function updateTimer() {
     const minutes = Math.floor((difference % (1000 * 60 * 60)) / (1000 * 60));
     const seconds = Math.floor((difference % (1000 * 60)) / 1000);
 
-    // Atualizando os valores
     updateFlipCard('days', days);
     updateFlipCard('hours', hours);
     updateFlipCard('minutes', minutes);
     updateFlipCard('seconds', seconds);
 }
 
-// Função para atualizar a rotação do flip card
 function updateFlipCard(id, value) {
     const flipCard = document.getElementById(id);
     const flipCardInner = flipCard.querySelector('.flip-card-inner');
-    
-    // Se o valor já for o mesmo, não faz a animação
-    if (flipCardInner.textContent !== value.toString()) {
-        // Reinicia a animação de flip
+    const currentValue = flipCardInner.textContent.trim();
+
+    if (currentValue !== value.toString()) {
         flipCardInner.style.animation = 'none';
         flipCardInner.offsetHeight; // Força o reflow para reiniciar a animação
-        flipCardInner.style.animation = 'flip 1s ease-in-out'; // Aplica a animação
-        flipCardInner.textContent = value; // Atualiza o número
+        flipCardInner.style.animation = 'flip 1s ease-in-out';
+        flipCardInner.textContent = value;
     }
 }
 
 setInterval(updateTimer, 1000);
 
+document.addEventListener("DOMContentLoaded", function () {
+    // Seleciona elementos do carrossel de fotos
+    const photoCarousel = document.querySelector('.photo-carousel');
+    const photos = document.querySelectorAll('.photo-carousel img');
+    const prevBtn = document.getElementById('prevBtn');
+    const nextBtn = document.getElementById('nextBtn');
+    let photoIndex = 0;
+    const totalPhotos = photos.length;
 
-// Carrossel de fotos
-const photoCarousel = document.querySelector('.photo-gallery .carousel');
-const photos = document.querySelectorAll('.photo-gallery img');
-let photoIndex = 0;
+    // Garante que as imagens estão lado a lado
+    photoCarousel.style.display = "flex";
+    photoCarousel.style.transition = "transform 0.5s ease-in-out";
 
-function updatePhotoCarousel() {
-    const offset = -photoIndex * 100;
-    photoCarousel.style.transform = `translateX(${offset}%)`;
-}
+    function updatePhotoCarousel() {
+        const offset = -photoIndex * 100; 
+        photoCarousel.style.transform = `translateX(${offset}%)`;
+    }
 
-setInterval(() => {
-    photoIndex = (photoIndex + 1) % photos.length;
-    updatePhotoCarousel();
-}, 3000); // Troca de fotos a cada 3 segundos
+    if (prevBtn && nextBtn) {
+        nextBtn.addEventListener('click', () => {
+            if (photoIndex < totalPhotos - 1) {
+                photoIndex++;
+            } else {
+                photoIndex = 0; // Reinicia ao chegar no fim
+            }
+            updatePhotoCarousel();
+        });
+
+        prevBtn.addEventListener('click', () => {
+            if (photoIndex > 0) {
+                photoIndex--;
+            } else {
+                photoIndex = totalPhotos - 1; // Volta para a última imagem
+            }
+            updatePhotoCarousel();
+        });
+
+        // Alternância automática de imagens a cada 3 segundos
+        setInterval(() => {
+            nextBtn.click();
+        }, 3000);
+
+        // Inicia com a posição correta
+        updatePhotoCarousel();
+    }
+});

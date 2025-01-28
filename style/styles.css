@@ -10,7 +10,7 @@ html, body {
 
 body {
     font-family: Arial, sans-serif;
-    background: linear-gradient(135deg, #f0c0e8, #c0d4f5);
+    background: linear-gradient(180deg, #f0c0e8, #c0d4f5);
     background-size: cover;
     color: #333;
     display: flex;
@@ -21,18 +21,17 @@ body {
 header {
     width: 100%;
     padding: 10px;
-    background-color: #c0d4f5;
+    background: linear-gradient(600deg,#c0d4f5, #f0c0e8);
     text-align: center;
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
 }
 
-.carousel-container, .photo-gallery {
-    width: 90%;
-    max-width: 600px;
+.carousel-container {
+    width: 100%;
     overflow: hidden;
-    margin: 20px 0;
-    position: relative;
+    border-radius: 10px;
 }
+
 .carousel {
     display: flex;
     transition: transform 0.5s ease;
@@ -95,15 +94,59 @@ header {
     color: #444;
 }
 
-.photo-gallery .carousel {
-    display: flex;
-    transition: transform 0.5s ease;
+.photo-gallery {
+    text-align: center;
+    position: relative;
+    width: 80%;
+    margin: auto;
 }
 
 .photo-gallery img {
-    flex: 0 0 100%;
+    width: 100%;
+    max-width: 100%;
     border-radius: 10px;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+.photo-carousel-container {
+    position: relative;
+    width: 100%;
+    overflow: hidden;
+}
+
+.photo-carousel {
+    display: flex;
+    transition: transform 0.5s ease-in-out;
+    width: 100%;
+}
+
+.photo-carousel img {
+    width: 100%;
+    flex-shrink: 0;
+}
+
+#prevBtn, #nextBtn {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background-color: rgba(255, 255, 255, 0.6);
+    border: none;
+    cursor: pointer;
+    font-size: 24px;
+    padding: 10px;
+    border-radius: 50%;
+}
+
+#prevBtn {
+    left: 10px;
+}
+
+#nextBtn {
+    right: 10px;
+}
+
+#prevBtn:hover, #nextBtn:hover {
+    background-color: rgba(255, 255, 255, 0.8);
 }
 
 /* Responsividade */
