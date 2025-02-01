@@ -1,4 +1,4 @@
-/* Animações de corações */
+
 .heart {
     position: fixed;
     bottom: 0;
@@ -25,7 +25,7 @@
     }
 }
 
-    /* O flip card continua com a mesma configuração, mas vamos controlar melhor a animação */
+    
     .flip-timer {
         display: flex;
         gap: 15px;
@@ -56,7 +56,7 @@
         color: #ecf0f1;
     }
     
-    /* Animação de flip controlada */
+    
     @keyframes flip {
         0% {
             transform: rotateX(0deg);
@@ -69,7 +69,7 @@
         }
     }
     
-    /* CSS para o cartão de segundos sem animação */
+    
     #seconds .flip-card-inner {
-        animation: none !important; /* Remove qualquer animação de flip */
+        animation: none !important; 
     }

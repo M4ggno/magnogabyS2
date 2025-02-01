@@ -2,19 +2,19 @@ function createHeart() {
     const heart = document.createElement('div');
     heart.classList.add('heart');
 
-    // Posicionamento horizontal aleatório
+    
     heart.style.left = Math.random() * 100 + 'vw';
 
-    // Adiciona o coração ao body
+    
     document.body.appendChild(heart);
 
-    // Remove o coração após a animação
+    
     setTimeout(() => {
         heart.remove();
-    }, 10000); // Deve ser igual ao tempo da animação
+    }, 10000);
 }
 
-// Gera corações em intervalos de 1 segundo
+
 setInterval(createHeart, 1000);
 
 const carousel = document.querySelector('.carousel');
@@ -40,38 +40,37 @@ document.querySelectorAll('.next').forEach((button) => {
     });
 });
 
-// Seleciona os botões de play
+
 const playButtons = document.querySelectorAll('.play');
 
 playButtons.forEach((button, index) => {
-    const audio = new Audio(`music/song${index + 1}.mp3`); // Ajusta o caminho do áudio
+    const audio = new Audio(`music/song${index + 1}.mp3`);
     let isPlaying = false;
 
     button.addEventListener('click', () => {
         if (isPlaying) {
             audio.pause();
-            button.innerHTML = "▶️"; // Ícone de play
+            button.innerHTML = ('<img src="img/play.png" alt="Ícone" width="20" height="20"></img>'); 
         } else {
             audio.play();
-            button.innerHTML = "⏸️"; // Ícone de pause
+            button.innerHTML = ('<img src="img/pause.png" alt="Ícone" width="20" height="20"></img>');
         }
         isPlaying = !isPlaying;
     });
 
-    // Reseta o botão quando a música termina
     audio.addEventListener("ended", () => {
-        button.innerHTML = "▶️";
+        button.innerHTML = ('<img src="img/play.png" alt="Ícone" width="20" height="20"></img>');
         isPlaying = false;
     });
 });
 
 
-// Responsividade para o carrossel
+
 window.addEventListener('resize', () => {
     updateCarousel();
 });
 
-// Centraliza o carrossel na inicialização
+
 updateCarousel();
 
 function updateTimer() {
@@ -97,7 +96,7 @@ function updateFlipCard(id, value) {
 
     if (currentValue !== value.toString()) {
         flipCardInner.style.animation = 'none';
-        flipCardInner.offsetHeight; // Força o reflow para reiniciar a animação
+        flipCardInner.offsetHeight;
         flipCardInner.style.animation = 'flip 1s ease-in-out';
         flipCardInner.textContent = value;
     }
@@ -106,7 +105,7 @@ function updateFlipCard(id, value) {
 setInterval(updateTimer, 1000);
 
 document.addEventListener("DOMContentLoaded", function () {
-    // Seleciona elementos do carrossel de fotos
+    
     const photoCarousel = document.querySelector('.photo-carousel');
     const photos = document.querySelectorAll('.photo-carousel img');
     const prevBtn = document.getElementById('prevBtn');
@@ -114,7 +113,7 @@ document.addEventListener("DOMContentLoaded", function () {
     let photoIndex = 0;
     const totalPhotos = photos.length;
 
-    // Garante que as imagens estão lado a lado
+    
     photoCarousel.style.display = "flex";
     photoCarousel.style.transition = "transform 0.5s ease-in-out";
 
@@ -128,7 +127,7 @@ document.addEventListener("DOMContentLoaded", function () {
             if (photoIndex < totalPhotos - 1) {
                 photoIndex++;
             } else {
-                photoIndex = 0; // Reinicia ao chegar no fim
+                photoIndex = 0;
             }
             updatePhotoCarousel();
         });
@@ -137,17 +136,17 @@ document.addEventListener("DOMContentLoaded", function () {
             if (photoIndex > 0) {
                 photoIndex--;
             } else {
-                photoIndex = totalPhotos - 1; // Volta para a última imagem
+                photoIndex = totalPhotos - 1; 
             }
             updatePhotoCarousel();
         });
 
-        // Alternância automática de imagens a cada 3 segundos
+        
         setInterval(() => {
             nextBtn.click();
         }, 3000);
 
-        // Inicia com a posição correta
+        
         updatePhotoCarousel();
     }
 });
