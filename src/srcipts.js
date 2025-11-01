@@ -226,7 +226,7 @@ function criarOverlayAniversario() {
         ">
             Hoje comemoramos 365 dias de história, risadas, abraços e muito amor! 
             <br><br>
-            Obrigado(a) por cada momento ao meu lado. 
+            Obrigado por cada momento ao meu lado. 
             <br><br>
             Te amo mais a cada dia! ❤️
         </p>
