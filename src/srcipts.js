@@ -147,7 +147,7 @@ function verificarAniversario() {
     const mes = hoje.getMonth() + 1;
 
     // Se for 1º/11, mostra a mensagem de 1 ano
-    if (dia === 1 && mes === 11) {
+    if (dia) {
         mostrarMensagemAniversario();
     }
 }
